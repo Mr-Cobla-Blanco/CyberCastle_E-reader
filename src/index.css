@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary-50 dark:bg-gray-900;
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+  }
+}
+
+@layer components {
+  .book-card {
+    @apply relative bg-white dark:bg-gray-800 rounded-lg shadow-tome overflow-hidden 
+    border border-primary-200 dark:border-gray-700
+    transform transition-all duration-300 hover:-translate-y-1 hover:shadow-book;
+  }
+
+  .book-spine {
+    @apply absolute left-0 top-0 h-full w-4 bg-primary-700 dark:bg-primary-900
+    bg-leather;
+  }
+
+  .vintage-button {
+    @apply px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white
+    rounded-md shadow-md border border-primary-500
+    transform transition-all duration-200 hover:-translate-y-0.5
+    focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50;
+  }
+
+  .parchment-card {
+    @apply bg-primary-50 dark:bg-gray-800 rounded-lg shadow-page
+    border border-primary-200 dark:border-gray-700
+    bg-parchment;
+  }
+}
+
+.toggle-checkbox:checked {
+  @apply right-0 border-primary-600;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  @apply bg-primary-600;
+}
+
+.toggle-checkbox {
+  @apply right-0 z-10 border-gray-300 dark:border-gray-600 top-0 transition-all duration-300;
+}
+
+.toggle-label {
+  @apply transition-colors duration-300;

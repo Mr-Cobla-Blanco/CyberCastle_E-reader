@@ -22,12 +22,13 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
   return (
     <motion.div 
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-book overflow-hidden transition-all hover:shadow-lg"
+      className="book-card"
       whileHover={{ y: -5 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
+      <div className="book-spine" />
       <Link to={`/reader/${book.id}`} className="block h-full">
         <div className="relative pb-[140%]">
           <img 
@@ -55,10 +56,14 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
         </div>
         
         <div className="p-4">
-          <h3 className="font-semibold text-gray-900 dark:text-white line-clamp-1">{book.title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{book.author}</p>
+          <h3 className="font-display text-lg font-semibold text-primary-900 dark:text-primary-100 line-clamp-1">
+            {book.title}
+          </h3>
+          <p className="text-sm text-primary-600 dark:text-primary-400 mt-1 font-display italic">
+            {book.author}
+          </p>
           
-          <div className="mt-3 bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full overflow-hidden">
+          <div className="mt-3 bg-primary-100 dark:bg-primary-900/30 h-1.5 rounded-full overflow-hidden">
             <div 
               className="h-full bg-primary-600 dark:bg-primary-500 rounded-full"
               style={{ width: `${book.readingProgress * 100}%` }}
@@ -66,12 +71,12 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
           </div>
           
           <div className="mt-2 flex justify-between items-center">
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-primary-500 dark:text-primary-400 font-display">
               {book.currentPage} of {book.totalPages} pages
             </span>
             
             <button 
-              className="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 rounded-full"
+              className="p-1 text-primary-500 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 rounded-full"
               onClick={(e) => {
                 e.preventDefault();
                 // Add book options menu handler here
@@ -85,5 +90,3 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
     </motion.div>
   );
 };
-
-export default BookCard;
