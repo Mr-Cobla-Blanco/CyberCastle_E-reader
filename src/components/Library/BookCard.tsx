@@ -90,3 +90,5 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
     </motion.div>
   );
 };
+
+export default BookCard
