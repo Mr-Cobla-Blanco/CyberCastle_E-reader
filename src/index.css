@@ -11,7 +11,7 @@
 
 @layer components {
   .book-card {
-    @apply relative bg-white dark:bg-gray-800 rounded-lg shadow-tome overflow-hidden 
+    @apply relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden 
     border border-primary-200 dark:border-gray-700
     transform transition-all duration-300 hover:-translate-y-1 hover:shadow-book;
   }
@@ -32,6 +32,12 @@
     @apply bg-primary-50 dark:bg-gray-800 rounded-lg shadow-page
     border border-primary-200 dark:border-gray-700
     bg-parchment;
+  }
+}
+
+@layer utilities {
+  .shadow-tome {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 }
 
